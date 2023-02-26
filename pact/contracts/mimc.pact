@@ -1,5 +1,6 @@
 ;SPDX-License-Identifier: MIT
 (module mimc-v1 GOV
+  (defconst VERSION:string "0.9")
   (defcap GOV () false)
 
   (use util-lists [append-last last enforce-not-empty])
