@@ -2,7 +2,7 @@
 (module mimc-v1 GOV
   (defcap GOV () false)
 
-  (use util-lists [append-last last])
+  (use util-lists [append-last last enforce-not-empty])
 
   ; Modulus to define the field (same as BN128)
   (defconst FIELD-MODULUS:integer 21888242871839275222246405745257275088548364400416034343698204186575808495617)
@@ -273,6 +273,9 @@
 
   (defun feistel-multi-hash:[integer] (key:integer inputs:[integer] n-outputs:integer)
     "Compute a hash of multiple integers inputs and outputs multiple integers using a sponge structure"
+    ; Do some sanity checks
+    (enforce-not-empty inputs)
+    (enforce (> n-outputs 0) "At least 1 input is required")
     (let* ((initial-state  {'L:0,'R:0})
            (current-state (fold (hash-absorb key) initial-state inputs))
            (output-states (if (= n-outputs 1) [current-state]

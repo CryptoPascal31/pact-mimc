@@ -20,6 +20,11 @@
                                                           'R:274945154732293792784580363548970818611304339008964723447672490026510689427}))
 
 
+; Multi hashss
+(expect-failure "Hash empty imput" "not be empty" (feistel-multi-hash 3 [] 1))
+
+(expect-failure "Hash empty output" "is required" (feistel-multi-hash 3 [0] 0))
+
 (expect "Multi Hash 1 Input/1 Output" [8426254928183433017674806292814795928093069860681963309360233295796225841846]
                                       (feistel-multi-hash 3 [1] 1))
 

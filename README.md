@@ -47,7 +47,7 @@ Returns the hash result as a list of integers.
 | MiMCSponge(nInputs, 220, nOutputs) | MIMCSponge.multiHash() |
 
 Gas consumption:
- - 1 input/1 output: 27,716
- - 1 input/10 outputs: 27,7152
- - 10 inputs/1 output: 27,7181
- - 10 inputs/10 outputs: 526,630
+ - 1 input/1 output: 27,724
+ - 1 input/10 outputs: 27,7160
+ - 10 inputs/1 output: 27,7189
+ - 10 inputs/10 outputs: 526,638
