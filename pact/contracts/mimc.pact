@@ -256,12 +256,12 @@
     (bind input {'L:=l, 'R:=r}
       {'L:r, 'R:l}))
 
-  (defun hash-absorb (key:integer current:object new-data:integer)
+  (defun hash-absorb:object (key:integer current:object new-data:integer)
     "Absorb a new input data inside the spong"
     (bind current {'L:=current-x, 'R:=current-y}
       (feistel-hash key {'L:(+ current-x new-data), 'R:current-y})))
 
-  (defun hash-extract (key:integer current-lst:[object] _:integer)
+  (defun hash-extract:[object] (key:integer current-lst:[object] _:integer)
     "Extract an ouput data from the sponge"
     (append-last current-lst (feistel-hash key (last current-lst))))
 
