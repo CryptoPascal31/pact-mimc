@@ -242,7 +242,7 @@
 
   ; This function can be further gas optimized by inlining *mod and +mod
   (defun feistel-round:object (key:integer input:object cst:integer)
-    "Compute a round of Mimc"
+    "Compute a round of MiMC"
     (bind input {'L:=l, 'R:=r}
       (let* ((t1 (+mod l (+ key cst)))
              (t2 (*mod t1 t1))
@@ -257,12 +257,12 @@
       {'L:r, 'R:l}))
 
   (defun hash-absorb:object (key:integer current:object new-data:integer)
-    "Absorb a new input data inside the spong"
+    "Absorb a new input data inside the sponge"
     (bind current {'L:=current-x, 'R:=current-y}
       (feistel-hash key {'L:(+ current-x new-data), 'R:current-y})))
 
   (defun hash-extract:[object] (key:integer current-lst:[object] _:integer)
-    "Extract an ouput data from the sponge"
+    "Extract an output data from the sponge"
     (append-last current-lst (feistel-hash key (last current-lst))))
 
 
