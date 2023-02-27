@@ -278,9 +278,9 @@
     (enforce-not-empty inputs)
     (enforce (> n-outputs 0) "At least 1 input is required")
     (let* ((initial-state  {'L:0,'R:0})
-           (current-state (fold (hash-absorb key) initial-state inputs))
-           (output-states (if (= n-outputs 1) [current-state]
-                                              (fold (hash-extract key) [current-state] (enumerate 2 n-outputs)))))
+           (absorb-state (fold (hash-absorb key) initial-state inputs))
+           (output-states (if (= n-outputs 1) [absorb-state]
+                                              (fold (hash-extract key) [absorb-state] (enumerate 2 n-outputs)))))
       (map (at 'L) output-states))
   )
 )
