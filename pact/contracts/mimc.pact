@@ -244,7 +244,7 @@
   (defun feistel-round:object (key:integer input:object cst:integer)
     "Compute a round of MiMC"
     (bind input {'L:=l, 'R:=r}
-      (let* ((t1 (+mod l (+ key cst)))
+      (let* ((t1 (+ l (+ key cst)))
              (t2 (*mod t1 t1))
              (t4 (*mod t2 t2))
              (t5 (*mod t4 t1)))
