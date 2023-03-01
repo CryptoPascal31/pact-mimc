@@ -54,6 +54,6 @@ Returns the hash result as a list of integers.
 
 Gas consumption:
  - 1 input/1 output: 27,724
- - 1 input/10 outputs: 27,7160
- - 10 inputs/1 output: 27,7189
+ - 1 input/10 outputs: 277,160
+ - 10 inputs/1 output: 277,189
  - 10 inputs/10 outputs: 526,638
